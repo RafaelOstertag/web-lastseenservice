@@ -6,7 +6,7 @@ import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 
 object Clients : IntIdTable() {
-    val ip = varchar("ip", 45)
+    val ip = varchar("ip", 45).index(isUnique = true)
 }
 
 object Seens : IntIdTable() {
