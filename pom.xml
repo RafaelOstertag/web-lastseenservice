@@ -16,6 +16,7 @@
         <kotlin.version>1.2.51</kotlin.version>
         <junit.version>4.12</junit.version>
         <exposed.version>0.10.3</exposed.version>
+        <logback.version>1.2.3</logback.version>
         <h2.version>1.4.197</h2.version>
     </properties>
 
@@ -31,6 +32,15 @@
             <artifactId>exposed</artifactId>
             <version>${exposed.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
