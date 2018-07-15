@@ -1,4 +1,4 @@
-package webtools
+package ch.guengel.webtools
 
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
