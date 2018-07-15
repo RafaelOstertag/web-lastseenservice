@@ -16,6 +16,7 @@
         <kotlin.version>1.2.51</kotlin.version>
         <junit.version>4.12</junit.version>
         <exposed.version>0.10.3</exposed.version>
+        <h2.version>1.4.197</h2.version>
     </properties>
 
     <dependencies>
@@ -37,6 +38,15 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
