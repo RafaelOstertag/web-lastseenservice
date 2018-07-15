@@ -30,6 +30,12 @@ pipeline {
             }
         }
 
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
 //        stage('deploy') {
 //            when {
 //                branch 'master'
