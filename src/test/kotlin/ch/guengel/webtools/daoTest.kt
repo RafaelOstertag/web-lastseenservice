@@ -1,39 +1,15 @@
 package ch.guengel.webtools
 
 import org.jetbrains.exposed.exceptions.ExposedSQLException
-import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.SchemaUtils.create
-import org.jetbrains.exposed.sql.transactions.TransactionManager
-import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 import org.junit.Test
-import java.sql.Connection
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-object DatabaseConnection {
-    val db by lazy {
-        Database.connect("jdbc:h2:mem:test", driver = "org.h2.Driver")
-    }
-}
-
 class DaoTest {
-    private fun test(testFun: () -> Unit) {
-        transaction(
-            transactionIsolation = Connection.TRANSACTION_REPEATABLE_READ,
-            db = DatabaseConnection.db,
-            repetitionAttempts = 0
-        ) {
-            create(Seens, Clients)
-            testFun()
-            flushCache()
-            TransactionManager.current().rollback()
-        }
-    }
-
     @Test
     fun `simple client insert`() {
-        test {
+        databaseTest {
 
             Client.new {
                 ip = "127.0.0.1"
@@ -47,7 +23,7 @@ class DaoTest {
     @Test
     fun `client Uniqueness`() {
         assertFailsWith<ExposedSQLException> {
-            test {
+            databaseTest {
                 Client.new {
                     ip = "127.0.0.1"
                 }
@@ -61,7 +37,7 @@ class DaoTest {
 
     @Test
     fun `seen reference`() {
-        test {
+        databaseTest {
             val client = Client.new {
                 ip = "127.0.0.1"
             }
