@@ -1,5 +1,9 @@
-package ch.guengel.webtools
+package ch.guengel.webtools.services
 
+import ch.guengel.webtools.DatabaseConnection
+import ch.guengel.webtools.dao.Client
+import ch.guengel.webtools.dao.Seen
+import ch.guengel.webtools.databaseTest
 import org.joda.time.DateTime
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -24,7 +28,10 @@ class LastSeenServiceTest {
             val (ip, from, to, timesSeen) = all.get(0)
             assertEquals("127.0.0.1", ip)
             assertEquals(DateTime(timeBase), from)
-            assertEquals(DateTime(timeBase + 2 * timeIncrement), to)
+            assertEquals(
+                DateTime(timeBase + 2 * timeIncrement),
+                to
+            )
             assertEquals(3, timesSeen)
         }
     }

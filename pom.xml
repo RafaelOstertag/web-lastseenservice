@@ -19,6 +19,8 @@
         <logback.version>1.2.3</logback.version>
         <h2.version>1.4.197</h2.version>
         <ktor.version>0.9.3</ktor.version>
+        <hikaricp.version>3.2.0</hikaricp.version>
+        <liquibase.version>3.6.2</liquibase.version>
     </properties>
 
     <dependencies>
@@ -46,12 +48,17 @@
             <version>${ktor.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-jackson</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
-            <scope>test</scope>
         </dependency>
 
 
@@ -61,6 +68,21 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikaricp.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>

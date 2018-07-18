@@ -1,0 +1,12 @@
+package ch.guengel.webtools
+
+import io.ktor.server.engine.commandLineEnvironment
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
+
+fun main(args: Array<String>): Unit {
+    embeddedServer(Netty, commandLineEnvironment(args)) {
+
+    }.start(true)
+}
+

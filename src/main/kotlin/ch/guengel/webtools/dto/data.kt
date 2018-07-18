@@ -1,4 +1,4 @@
-package ch.guengel.webtools
+package ch.guengel.webtools.dto
 
 import org.joda.time.DateTime
 

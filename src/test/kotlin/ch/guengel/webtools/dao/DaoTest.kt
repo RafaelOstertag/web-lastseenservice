@@ -1,5 +1,6 @@
-package ch.guengel.webtools
+package ch.guengel.webtools.dao
 
+import ch.guengel.webtools.databaseTest
 import org.jetbrains.exposed.exceptions.ExposedSQLException
 import org.joda.time.DateTime
 import org.junit.Test

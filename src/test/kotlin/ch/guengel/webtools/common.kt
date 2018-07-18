@@ -1,5 +1,7 @@
 package ch.guengel.webtools
 
+import ch.guengel.webtools.dao.Clients
+import ch.guengel.webtools.dao.Seens
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils.create
 import org.jetbrains.exposed.sql.transactions.TransactionManager

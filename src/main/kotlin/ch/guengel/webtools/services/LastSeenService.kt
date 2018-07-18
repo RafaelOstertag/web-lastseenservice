@@ -1,5 +1,9 @@
-package ch.guengel.webtools
+package ch.guengel.webtools.services
 
+import ch.guengel.webtools.dao.Client
+import ch.guengel.webtools.dao.Clients
+import ch.guengel.webtools.dao.Seen
+import ch.guengel.webtools.dto.Occurrences
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
@@ -11,7 +15,12 @@ class LastSeenService(private val database: Database) {
                 with(it) {
                     val latest = latestSeen()
                     val earliest = earliestSeen()
-                    Occurrences(ip = ip, timesSeen = seens.count(), from = earliest, to = latest)
+                    Occurrences(
+                        ip = ip,
+                        timesSeen = seens.count(),
+                        from = earliest,
+                        to = latest
+                    )
                 }
             }
             .sortedBy { it.ip }
