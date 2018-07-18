@@ -38,5 +38,9 @@ class LastSeenService(private val database: Database) {
             timesSeen = client.seens.count()
         )
     }
+
+    fun countOccurrencesSince(ip: String, timeSpecification: String): Occurrences {
+        return Occurrences("", DateTime(), DateTime(), 2)
+    }
 }
 

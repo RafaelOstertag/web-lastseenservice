@@ -16,7 +16,7 @@ import org.joda.time.ReadablePeriod
  *
  *     1d7s
  *
- * would adjust the given DateTime by one day and seven seconds
+ * would adjust the given DateTime by subtracting one day and seven seconds.
  */
 class DateTimeAdjuster(private val current: DateTime) {
     private val regex =
