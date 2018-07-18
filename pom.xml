@@ -18,12 +18,13 @@
         <exposed.version>0.10.3</exposed.version>
         <logback.version>1.2.3</logback.version>
         <h2.version>1.4.197</h2.version>
+        <ktor.version>0.9.3</ktor.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
 
@@ -31,6 +32,18 @@
             <groupId>org.jetbrains.exposed</groupId>
             <artifactId>exposed</artifactId>
             <version>${exposed.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-core</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-server-netty</artifactId>
+            <version>${ktor.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
@@ -74,6 +87,12 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <configuration>
+                    <jvmTarget>1.8</jvmTarget>
+                    <args>
+                        <arg>-Xcoroutines=enable</arg>
+                    </args>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -99,6 +118,19 @@
             <id>exposed</id>
             <name>exposed</name>
             <url>https://dl.bintray.com/kotlin/exposed</url>
+        </repository>
+
+        <repository>
+            <id>ktor</id>
+            <url>http://dl.bintray.com/kotlin/ktor</url>
+        </repository>
+        <repository>
+            <id>kotlinx</id>
+            <url>http://dl.bintray.com/kotlin/kotlinx</url>
+        </repository>
+        <repository>
+            <id>jcenter</id>
+            <url>http://jcenter.bintray.com</url>
         </repository>
     </repositories>
 
