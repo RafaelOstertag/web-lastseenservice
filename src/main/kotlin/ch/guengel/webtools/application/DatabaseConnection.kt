@@ -5,9 +5,9 @@ import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
 
 class DatabaseConnection(
-    private val jdbcUrl: String,
-    private val userName: String = "",
-    private val password: String = ""
+    jdbcUrl: String,
+    userName: String = "",
+    password: String = ""
 ) {
     val database: Database
 

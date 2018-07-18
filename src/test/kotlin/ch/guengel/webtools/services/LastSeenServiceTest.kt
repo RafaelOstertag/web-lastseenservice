@@ -14,7 +14,7 @@ const val timeIncrement = 10_000L
 
 
 class LastSeenServiceTest {
-    val lastSeenService = LastSeenService(DatabaseConnection.db)
+    private val lastSeenService = LastSeenService(DatabaseConnection.db)
 
     @Test
     fun `get all clients`() {
@@ -25,7 +25,7 @@ class LastSeenServiceTest {
 
             assertEquals(all.size, 1)
 
-            val (ip, from, to, timesSeen) = all.get(0)
+            val (ip, from, to, timesSeen) = all[0]
             assertEquals("127.0.0.1", ip)
             assertEquals(DateTime(timeBase), from)
             assertEquals(

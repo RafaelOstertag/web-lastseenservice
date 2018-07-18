@@ -32,7 +32,7 @@ class LastSeenService(private val database: Database) {
 
     fun addIpNow(ip: String): Occurrences {
         val clients = Client.find { Clients.ip eq ip }
-        val client: Client = transaction {
+        val client: Client = transaction(database) {
             val client = clients.elementAtOrNull(0) ?: Client.new { this.ip = ip }
 
             val newSeen = Seen.new { seenOn = DateTime() }

@@ -27,7 +27,7 @@ class DateTimeAdjuster(private val current: DateTime) {
 
         val durations = resolveMatchToPeriods(match)
 
-        return durations.fold(current, { acc, readablePeriod -> acc.minus(readablePeriod) })
+        return durations.fold(current) { acc, readablePeriod -> acc.minus(readablePeriod) }
     }
 
     private fun resolveMatchToPeriods(match: MatchResult): List<ReadablePeriod> {

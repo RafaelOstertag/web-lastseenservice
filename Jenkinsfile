@@ -20,19 +20,19 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh 'mvn clean'
+                sh 'mvn -B clean'
             }
         }
 
         stage('build') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn -B compile'
             }
         }
 
         stage('test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn -B test'
             }
         }
 
