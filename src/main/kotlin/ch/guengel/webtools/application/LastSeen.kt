@@ -1,5 +1,6 @@
 package ch.guengel.webtools.application
 
+import ch.guengel.webtools.services.LastSeenService
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.features.CORS
@@ -12,6 +13,13 @@ import io.ktor.routing.routing
 
 
 fun Application.lastSeen() {
+    val dbUrl = environment.config.property("database.url").getString()
+    val dbUsername = environment.config.property("database.username").getString()
+    val dbPassword = environment.config.property("database.password").getString()
+
+    val databaseConnection = DatabaseConnection(dbUrl, dbUsername, dbPassword)
+
+    val lasSeenService = LastSeenService(databaseConnection.database)
 
     install(CORS) {
         method(HttpMethod.Options)
@@ -32,7 +40,8 @@ fun Application.lastSeen() {
     }
 
     routing {
-
+        putLastSeenRoute(lasSeenService)
+        getLastSeenRoute(lasSeenService)
     }
 }
 

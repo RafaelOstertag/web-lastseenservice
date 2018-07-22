@@ -20,7 +20,7 @@
         <h2.version>1.4.197</h2.version>
         <ktor.version>0.9.3</ktor.version>
         <hikaricp.version>3.2.0</hikaricp.version>
-        <liquibase.version>3.6.2</liquibase.version>
+        <postgres.version>42.2.4</postgres.version>
     </properties>
 
     <dependencies>
@@ -76,11 +76,11 @@
             <version>${hikaricp.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.version}</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
         </dependency>
 
 
@@ -96,6 +96,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
