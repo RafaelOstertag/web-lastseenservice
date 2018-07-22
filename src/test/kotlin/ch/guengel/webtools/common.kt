@@ -10,7 +10,7 @@ import java.sql.Connection
 
 internal object testDatabaseConnection {
     val db by lazy {
-        val databaseConnection = DatabaseConnection("jdbc:h2:mem:databaseTest")
+        val databaseConnection = DatabaseConnection("jdbc:h2:mem:databaseTest;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE")
         databaseConnection.database
     }
 }
