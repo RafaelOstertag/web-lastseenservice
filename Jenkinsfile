@@ -36,17 +36,16 @@ pipeline {
             }
         }
 
-//        stage('deploy') {
-//            when {
-//                branch 'master'
-//            }
-//
-//            steps {
-//                withCredentials([usernameColonPassword(credentialsId: '80a834f5-b4ca-42b1-b5c6-55db88dca0a4', variable: 'CREDENTIALS')]) {
-//                    sh 'curl -k -u "$CREDENTIALS" --upload-file bin/nmapservice "${NEXUS}${REPOSITORY}"/nmapservice'
-//                }
-//            }
-//        }
+        stage('deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
+                    sh 'mvn -B -s "$MAVEN_SETTINGS_XML" -DskipTests deploy'
+                }
+            }
+        }
 
 //        stage('poke rundeck') {
 //            when {
