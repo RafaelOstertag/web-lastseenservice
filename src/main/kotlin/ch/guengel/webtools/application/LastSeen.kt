@@ -9,7 +9,9 @@ import io.ktor.features.Compression
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpMethod
 import io.ktor.jackson.jackson
+import io.ktor.request.path
 import io.ktor.routing.routing
+import org.slf4j.event.Level
 
 
 fun Application.lastSeen() {
@@ -33,7 +35,10 @@ fun Application.lastSeen() {
     }
 
     install(Compression)
-    install(CallLogging)
+    install(CallLogging) {
+        level = Level.INFO
+        filter { call -> call.request.path().startsWith("/v1/lastseen") }
+    }
 
     install(ContentNegotiation) {
         jackson {}
