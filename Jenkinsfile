@@ -44,7 +44,7 @@ pipeline {
                 def version = env.TAG_NAME[1..env.TAG_NAME.length()-1]
                 sh 'mvn versions:set -DnewVersion=$version'
                 configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
-                    sh 'mvn -Dmaven.wagon.http.ssl.insecure=true -B -s "$MAVEN_SETTINGS_XML" -DskipTests deploy'
+                    sh 'mvn -B -s "$MAVEN_SETTINGS_XML" -DskipTests deploy'
                 }
                 script {
                     step([$class: "RundeckNotifier",
