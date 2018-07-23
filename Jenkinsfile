@@ -3,6 +3,10 @@ pipeline {
         label 'freebsd&&kotlin'
     }
 
+    triggers {
+        pollSCM ''
+    }
+
     environment {
         NEXUS = "https://gizmo.kruemel.home/nexus/"
         REPOSITORY = "repository/webtools/nmapservice/"
@@ -38,11 +42,12 @@ pipeline {
 
         stage('deploy') {
             when {
-                tag pattern: "v(?:\\d+\\.){2}\\d+", comparator: "REGEXP"
+                branch "release/v*"
             }
+
             steps {
                 script {
-                    def version = env.TAG_NAME[1..env.TAG_NAME.length() - 1]
+                    def version = env.BRANCH_NAME - 'release/v'
                 }
                 sh 'mvn versions:set -DnewVersion=$version'
                 configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
