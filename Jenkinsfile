@@ -46,14 +46,12 @@ pipeline {
             }
 
             steps {
-                script {
-                    def version = env.BRANCH_NAME - 'release/v'
-                }
-                sh 'mvn versions:set -DnewVersion=$version'
+                sh 'mvn versions:set -DnewVersion=${BRANCH_NAME#release/v}'
                 configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
                     sh 'mvn -B -s "$MAVEN_SETTINGS_XML" -DskipTests deploy'
                 }
                 script {
+                    def version = env.BRANCH_NAME - 'release/v'
                     step([$class: "RundeckNotifier",
                           includeRundeckLogs: true,
                           jobId: "21c1a435-3931-4cf8-97ec-1d61609be089",
