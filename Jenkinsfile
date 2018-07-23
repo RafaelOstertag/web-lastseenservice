@@ -38,32 +38,26 @@ pipeline {
 
         stage('deploy') {
             when {
-                branch 'master'
+                tag pattern: "v(?:\\d+\\.){2}\\d+", comparator: "REGEXP"
             }
             steps {
+                def version = env.TAG_NAME[1..env.TAG_NAME.length()-1]
+                sh 'mvn versions:set -DnewVersion=$version'
                 configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
                     sh 'mvn -Dmaven.wagon.http.ssl.insecure=true -B -s "$MAVEN_SETTINGS_XML" -DskipTests deploy'
                 }
+                script {
+                    step([$class: "RundeckNotifier",
+                          includeRundeckLogs: true,
+                          jobId: "21c1a435-3931-4cf8-97ec-1d61609be089",
+                          options: "version=$version",
+                          rundeckInstance: "gizmo",
+                          shouldFailTheBuild: true,
+                          shouldWaitForRundeckJob: true,
+                          tailLog: true])
+                }
             }
         }
-
-//        stage('poke rundeck') {
-//            when {
-//                branch 'master'
-//            }
-//
-//            steps {
-//                script {
-//                    step([$class: "RundeckNotifier",
-//                        includeRundeckLogs: true,
-//                        jobId: "8c822ea8-ef03-419d-95cd-5a2ca7106071",
-//                        rundeckInstance: "gizmo",
-//                        shouldFailTheBuild: true,
-//                        shouldWaitForRundeckJob: true,
-//                        tailLog: true])
-//                }
-//            }
-//        }
     }
 
     post {
