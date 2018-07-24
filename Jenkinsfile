@@ -7,11 +7,6 @@ pipeline {
         pollSCM ''
     }
 
-    environment {
-        NEXUS = "https://gizmo.kruemel.home/nexus/"
-        REPOSITORY = "repository/webtools/nmapservice/"
-    }
-
     tools {
         maven 'Maven 3.5.4'
     }
