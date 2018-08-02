@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.2.51</kotlin.version>
+        <kotlin.version>1.2.60</kotlin.version>
         <junit.version>4.12</junit.version>
         <exposed.version>0.10.3</exposed.version>
         <logback.version>1.2.3</logback.version>
@@ -21,6 +21,7 @@
         <ktor.version>0.9.3</ktor.version>
         <hikaricp.version>3.2.0</hikaricp.version>
         <postgres.version>42.2.4</postgres.version>
+        <consul-api.version>1.4.0</consul-api.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,12 @@
             <groupId>io.ktor</groupId>
             <artifactId>ktor-jackson</artifactId>
             <version>${ktor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ecwid.consul</groupId>
+            <artifactId>consul-api</artifactId>
+            <version>${consul-api.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->

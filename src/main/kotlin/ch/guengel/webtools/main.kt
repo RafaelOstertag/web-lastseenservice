@@ -1,9 +1,13 @@
 package ch.guengel.webtools
 
+import ch.guengel.webtools.serviceregistry.Consul
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import kotlinx.coroutines.experimental.async
 import org.slf4j.LoggerFactory
+import java.net.DatagramSocket
+import java.net.InetAddress
 import java.util.*
 
 fun printGitVersion() {
@@ -21,8 +25,30 @@ fun printGitVersion() {
     }
 }
 
+fun registerService(serviceRegistryAddress: String, servicePort: Int) {
+    async {
+        val serviceRegistry = Consul(serviceRegistryAddress)
+        serviceRegistry.register(getIp(), servicePort)
+    }
+}
+
+private fun getIp(): String {
+    val datagramSocket = DatagramSocket()
+    val address = InetAddress.getByName("8.8.8.8")
+    return datagramSocket.use {
+        it.connect(address, 80)
+        it.localAddress.hostAddress
+    }
+}
+
+
 fun main(args: Array<String>) {
     printGitVersion()
-    embeddedServer(Netty, commandLineEnvironment(args)).start(true)
+    val commandLineEnvironment = commandLineEnvironment(args)
+    val serviceRegistryAddress = commandLineEnvironment.config.property("serviceregistry.address").getString()
+    val servicePort = commandLineEnvironment.config.property("ktor.deployment.port").getString().toInt()
+    registerService(serviceRegistryAddress, servicePort)
+
+    embeddedServer(Netty, commandLineEnvironment).start(true)
 }
 
