@@ -5,7 +5,7 @@ import ch.guengel.webtools.dao.Clients
 import ch.guengel.webtools.dao.Seen
 import ch.guengel.webtools.dao.Seens
 import ch.guengel.webtools.testDatabaseConnection
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.SchemaUtils.create
 import org.jetbrains.exposed.sql.SchemaUtils.drop
 import org.jetbrains.exposed.sql.transactions.transaction

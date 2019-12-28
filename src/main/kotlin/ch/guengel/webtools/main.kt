@@ -4,7 +4,9 @@ import ch.guengel.webtools.serviceregistry.Consul
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import kotlinx.coroutines.experimental.async
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.slf4j.LoggerFactory
 import java.net.DatagramSocket
 import java.net.InetAddress
@@ -26,7 +28,7 @@ fun printGitVersion() {
 }
 
 fun registerService(serviceRegistryAddress: String, servicePort: Int) {
-    async {
+    GlobalScope.launch(Dispatchers.IO) {
         val serviceRegistry = Consul(serviceRegistryAddress)
         serviceRegistry.register(getIp(), servicePort)
     }
