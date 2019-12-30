@@ -492,10 +492,6 @@
         </repository>
 
         <repository>
-            <id>ktor</id>
-            <url>http://dl.bintray.com/kotlin/ktor</url>
-        </repository>
-        <repository>
             <id>kotlinx</id>
             <url>http://dl.bintray.com/kotlin/kotlinx</url>
         </repository>
