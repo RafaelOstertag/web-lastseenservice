@@ -65,6 +65,7 @@ class LastSeenGrpcService(private val lastSeenService: LastSeenService) : LastSe
             val occurrences = lastSeenService.addIpNow(request.ip)
             responseObserver?.onNext(toLastSeenReply(occurrences))
             responseObserver?.onCompleted()
+            logger.info("Update count for ${request.ip}")
         } catch (e: Exception) {
             val exception = Status.fromCode(Status.Code.UNKNOWN).withDescription(e.message).withCause(e).asRuntimeException()
             responseObserver?.onError(exception)
