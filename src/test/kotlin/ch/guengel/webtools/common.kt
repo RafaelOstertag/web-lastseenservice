@@ -1,6 +1,5 @@
 package ch.guengel.webtools
 
-import ch.guengel.webtools.application.DatabaseConnection
 import ch.guengel.webtools.dao.Clients
 import ch.guengel.webtools.dao.Seens
 import org.jetbrains.exposed.sql.SchemaUtils.create

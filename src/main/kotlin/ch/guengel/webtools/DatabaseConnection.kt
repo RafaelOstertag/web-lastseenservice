@@ -1,4 +1,4 @@
-package ch.guengel.webtools.application
+package ch.guengel.webtools
 
 import ch.guengel.webtools.dao.Clients
 import ch.guengel.webtools.dao.Seens
@@ -7,6 +7,7 @@ import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils.create
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.slf4j.LoggerFactory
 
 class DatabaseConnection(
     jdbcUrl: String,
@@ -31,7 +32,10 @@ class DatabaseConnection(
         transaction(database) {
             create(Seens, Clients)
         }
+        logger.info("Connected to $jdbcUrl as $userName")
     }
 
-
+    companion object {
+        val logger = LoggerFactory.getLogger(DatabaseConnection::class.java)
+    }
 }
