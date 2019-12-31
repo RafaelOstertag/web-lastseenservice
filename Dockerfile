@@ -4,7 +4,7 @@ COPY src /build/src
 COPY .git /build/.git
 COPY pom.xml /build
 COPY docker/guengel.ch.crt /tmp
-RUN keytool -importcert -noprompt -cacerts -file /tmp/guengel.ch.crt -storepass changeit -keystore /usr/local/openjdk-11/lib/security/cacerts
+RUN keytool -importcert -noprompt -cacerts -file /tmp/guengel.ch.crt -storepass changeit
 WORKDIR /build
 RUN mvn -B package
 
