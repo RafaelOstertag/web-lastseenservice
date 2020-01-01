@@ -3,11 +3,11 @@ package ch.guengel.webtools.dao
 import ch.guengel.webtools.databaseTest
 import org.jetbrains.exposed.exceptions.ExposedSQLException
 import org.joda.time.DateTime
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class DaoTest {
+internal class DaoTest {
     @Test
     fun `simple client insert`() {
         databaseTest {

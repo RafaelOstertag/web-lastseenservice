@@ -1,10 +1,10 @@
 package ch.guengel.webtools
 
 import org.joda.time.DateTime
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class DateTimeAdjusterTest {
+internal class DateTimeAdjusterTest {
     private val baseTime = DateTime(2006, 7, 8, 12, 0, 0)
     private val subject = DateTimeAdjuster(baseTime)
 

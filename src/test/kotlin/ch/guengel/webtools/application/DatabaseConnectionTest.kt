@@ -5,9 +5,9 @@ import ch.guengel.webtools.dao.Clients
 import ch.guengel.webtools.dao.Seens
 import org.jetbrains.exposed.sql.SchemaUtils.create
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
-class DatabaseConnectionTest {
+internal class DatabaseConnectionTest {
 
     @Test
     fun `initialization test`() {

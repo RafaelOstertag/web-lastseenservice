@@ -10,26 +10,24 @@ import org.jetbrains.exposed.sql.SchemaUtils.create
 import org.jetbrains.exposed.sql.SchemaUtils.drop
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.sql.Connection
-
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 const val timeBase = 100_000L
 const val timeIncrement = 10_000L
 
-
-class LastSeenServiceTest {
+internal class LastSeenServiceTest {
     private val lastSeenService = LastSeenService(testDatabaseConnection.db)
 
-    @Before
+    @BeforeEach
     fun setUp() {
         transaction(
-            transactionIsolation = Connection.TRANSACTION_REPEATABLE_READ,
-            db = testDatabaseConnection.db,
-            repetitionAttempts = 0
+                transactionIsolation = Connection.TRANSACTION_REPEATABLE_READ,
+                db = testDatabaseConnection.db,
+                repetitionAttempts = 0
         ) {
             drop(Seens, Clients)
             create(Seens, Clients)
