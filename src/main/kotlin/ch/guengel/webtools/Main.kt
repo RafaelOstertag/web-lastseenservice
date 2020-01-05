@@ -35,11 +35,13 @@ fun registerService(serviceRegistryAddress: String, servicePort: Int) {
     GlobalScope.launch(Dispatchers.IO) {
         var retryDelay = 1000L
         var retry = 0
+        var success = false
 
-        while (true) {
+        while (!success) {
             try {
                 val serviceRegistry = Consul(serviceRegistryAddress)
                 serviceRegistry.register(getIp(), servicePort)
+                success = true
             } catch (e: Exception) {
                 retry++
                 logger.warn("Unable to connect to $serviceRegistryAddress. Retry $retry in ${retryDelay}ms")
