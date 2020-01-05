@@ -65,12 +65,12 @@ private fun getIp(): String {
 fun main(args: Array<String>) {
     printGitVersion()
 
-    val serverPort = Configuration.port
-    registerService(Configuration.consul, serverPort)
-
     val databaseConnection = DatabaseConnection(Configuration.databaseUrl,
             Configuration.databaseUsername,
             Configuration.databasePassword)
+
+    val serverPort = Configuration.port
+    registerService(Configuration.consul, serverPort)
 
     val lastSeenService = LastSeenService(databaseConnection.database)
     val lastSeenGrpcService = LastSeenGrpcService(lastSeenService)
