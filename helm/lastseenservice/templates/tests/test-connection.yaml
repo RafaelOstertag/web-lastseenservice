@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "{{ include "lastseenservice.fullname" . }}-test-connection"
   labels:
-    { { - include "lastseenservice.labels" . | nindent 4 } }
+    {{- include "lastseenservice.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test-success
 spec:

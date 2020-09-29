@@ -24,6 +24,7 @@
         <logback.version>1.2.3</logback.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <postgres.version>42.2.4</postgres.version>
+        <logstash-gelf.version>1.14.1</logstash-gelf.version>
     </properties>
 
     <dependencies>
@@ -70,6 +71,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgres.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>biz.paluch.logging</groupId>
+            <artifactId>logstash-gelf</artifactId>
+            <version>${logstash-gelf.version}</version>
         </dependency>
 
         <dependency>
