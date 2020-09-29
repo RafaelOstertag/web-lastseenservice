@@ -1,14 +1,9 @@
 package ch.guengel.webtools
 
 import ch.guengel.webtools.grpc.GrpcServer
-import ch.guengel.webtools.serviceregistry.Consul
 import ch.guengel.webtools.services.HealthGrpcService
 import ch.guengel.webtools.services.LastSeenGrpcService
 import ch.guengel.webtools.services.LastSeenService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.slf4j.LoggerFactory
 import java.net.DatagramSocket
 import java.net.InetAddress
@@ -29,29 +24,6 @@ fun printGitVersion() {
     }
 }
 
-fun registerService(serviceRegistryAddress: String, servicePort: Int) {
-    val logger = LoggerFactory.getLogger("register-service")
-
-    GlobalScope.launch(Dispatchers.IO) {
-        var retryDelay = 1000L
-        var retry = 0
-        var success = false
-
-        while (!success) {
-            try {
-                val serviceRegistry = Consul(serviceRegistryAddress)
-                serviceRegistry.register(getIp(), servicePort)
-                success = true
-            } catch (e: Exception) {
-                retry++
-                logger.warn("Unable to connect to $serviceRegistryAddress. Retry $retry in ${retryDelay}ms")
-                delay(retryDelay)
-                retryDelay *= 2
-            }
-        }
-    }
-}
-
 private fun getIp(): String {
     val datagramSocket = DatagramSocket()
     val address = InetAddress.getByName("8.8.8.8")
@@ -69,7 +41,6 @@ fun main(args: Array<String>) {
             Configuration.databasePassword)
 
     val serverPort = Configuration.port
-    registerService(Configuration.consul, serverPort)
 
     val lastSeenService = LastSeenService(databaseConnection.database)
     val lastSeenGrpcService = LastSeenGrpcService(lastSeenService)
