@@ -44,7 +44,6 @@ class DatabaseConnection(
         config.addDataSourceProperty("cachePrepStmts", "true")
         config.addDataSourceProperty("prepStmtCacheSize", "250")
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
-        config.idleTimeout = 60000
         config.maximumPoolSize = poolSize
         return config
     }
