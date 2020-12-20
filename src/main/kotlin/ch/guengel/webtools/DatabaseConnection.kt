@@ -1,15 +1,18 @@
 package ch.guengel.webtools
 
-import ch.guengel.webtools.dao.Clients
-import ch.guengel.webtools.dao.Seens
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import liquibase.Contexts
+import liquibase.LabelExpression
+import liquibase.Liquibase
+import liquibase.database.DatabaseFactory
+import liquibase.database.jvm.JdbcConnection
+import liquibase.resource.ClassLoaderResourceAccessor
 import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.SchemaUtils.create
-import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.LoggerFactory
+import javax.sql.DataSource
 
 class DatabaseConnection(
         jdbcUrl: String,
@@ -22,13 +25,12 @@ class DatabaseConnection(
     init {
         val config = createConfig(jdbcUrl, userName, password)
         dataSource = runBlocking {
-            connect(config)
+            val dataSource = connect(config)
+            setupDatabase(dataSource)
+            dataSource
         }
 
         database = Database.connect(dataSource)
-        transaction(database) {
-            create(Seens, Clients)
-        }
         logger.info("Connected to $jdbcUrl as $userName")
     }
 
@@ -60,6 +62,14 @@ class DatabaseConnection(
                 sleep *= 2
             }
         }
+    }
+
+    private fun setupDatabase(dataSource: DataSource) {
+        val connection = dataSource.connection
+        val database =
+            DatabaseFactory.getInstance().findCorrectDatabaseImplementation(JdbcConnection(connection))
+        val liquibase = Liquibase("/db/changelog/db.changelog-master.yaml", ClassLoaderResourceAccessor(), database)
+        liquibase.update(Contexts(), LabelExpression())
     }
 
     companion object {

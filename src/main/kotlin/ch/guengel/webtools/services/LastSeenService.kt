@@ -4,28 +4,28 @@ import ch.guengel.webtools.DateTimeAdjuster
 import ch.guengel.webtools.dao.Client
 import ch.guengel.webtools.dao.Clients
 import ch.guengel.webtools.dao.Seen
+import ch.guengel.webtools.dao.Seens
 import ch.guengel.webtools.dto.Occurrences
-import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 
 class LastSeenService(private val database: Database) {
     fun getAll(): List<Occurrences> = transaction(database) {
         Client.all()
-                .map {
-                    with(it) {
-                        val latest = latestSeen()
-                        val earliest = earliestSeen()
-                        Occurrences(
-                                ip = ip,
-                                timesSeen = seens.count(),
-                                from = earliest.toString(),
-                                to = latest.toString()
-                            )
-                        }
-                    }
-                    .sortedBy { it.ip }
+            .map {
+                with(it) {
+                    val clientStats = clientStats(it.id.value).first()
+                    Occurrences(
+                        ip = ip,
+                        from = clientStats[firstSeen]?.toString() ?: startOfEpoch,
+                        to = clientStats[lastSeen]?.toString() ?: startOfEpoch,
+                        timesSeen = clientStats[occurrences].toInt()
+                    )
+                }
             }
+            .sortedBy { it.ip }
+    }
 
     fun addIpNow(ip: String): Occurrences = transaction(database) {
         val clients = Client.find { Clients.ip eq ip }
@@ -34,14 +34,14 @@ class LastSeenService(private val database: Database) {
         val newSeen = Seen.new { seenOn = DateTime() }
         newSeen.client = client
 
+        val clientStats = clientStats(client.id.value).first()
         Occurrences(
-                ip = ip,
-                from = client.earliestSeen().toString(),
-                to = client.latestSeen().toString(),
-                timesSeen = client.seens.count()
+            ip = ip,
+            from = clientStats[firstSeen]?.toString() ?: startOfEpoch,
+            to = clientStats[lastSeen]?.toString() ?: startOfEpoch,
+            timesSeen = clientStats[occurrences].toInt()
         )
     }
-
 
     fun countOccurrencesSince(ip: String, timeSpecification: String): Occurrences {
         val currentDateTime = DateTime()
@@ -49,25 +49,28 @@ class LastSeenService(private val database: Database) {
         val from = dateTimeAdjuster.by(timeSpecification)
 
         return transaction(database) {
-            val client = Client.find { Clients.ip eq ip }.first()
-            val occurrences = client.seens.fold(0) { acc, seen ->
-                if (seen.seenOn.isBefore(currentDateTime) && seen.seenOn.isAfter(from))
-                    acc + 1
-                else
-                    acc
-            }
+            val occurrencesSince = (Clients innerJoin Seens)
+                .slice(occurrences)
+                .select { Op.build { Clients.ip eq ip } and Op.build { Seens.seenOn greaterEq from } }
+                .first()
 
             Occurrences(
-                    ip = ip,
-                    from = from.toString(),
-                    to = currentDateTime.toString(),
-                    timesSeen = occurrences
-                )
-            }
+                ip = ip,
+                from = from.toString(),
+                to = currentDateTime.toString(),
+                timesSeen = occurrencesSince[occurrences].toInt()
+            )
         }
+    }
 
-    private fun Client.earliestSeen() = seens.fold(DateTime()) { acc, seen -> minOf(acc, seen.seenOn) }
+    private fun clientStats(clientId: Int) = Seens
+        .slice(firstSeen, lastSeen, occurrences)
+        .select(Op.build { Seens.client eq clientId })
 
-    private fun Client.latestSeen() = seens.fold(DateTime(0L)) { acc, seen -> maxOf(acc, seen.seenOn) }
+    private companion object {
+        val firstSeen = Seens.seenOn.min().alias("firstSeen")
+        val lastSeen = Seens.seenOn.max().alias("lastSeen")
+        val occurrences = Seens.seenOn.count().alias("occurrences")
+        val startOfEpoch = DateTime(0).toString()
+    }
 }
-
