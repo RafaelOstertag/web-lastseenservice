@@ -57,3 +57,15 @@ databaseChangeLog:
             columns:
               - column:
                   name: client
+  - changeSet:
+      id: 001-seens-client-seen-on-idx
+      author: "Rafael Ostertag"
+      changes:
+        - createIndex:
+            indexName: seens_client_seen_on_idx
+            tableName: seens
+            columns:
+              - column:
+                  name: client
+              - column:
+                  name: seen_on
