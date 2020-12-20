@@ -6,7 +6,7 @@ RUN curl -fk -o /tmp/app.jar https://colossus.kruemel.home/nexus/repository/webt
 FROM openjdk:11-jre-slim
 
 COPY --from=download /tmp/app.jar /
-USER 424242
+USER 1000
 
 ENTRYPOINT ["/usr/local/openjdk-11/bin/java"]
 CMD ["-Dlogback.configurationFile=logback-graylog.xml", "-jar", "/app.jar"]
