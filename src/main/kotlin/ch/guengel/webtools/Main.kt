@@ -5,8 +5,6 @@ import ch.guengel.webtools.services.HealthGrpcService
 import ch.guengel.webtools.services.LastSeenGrpcService
 import ch.guengel.webtools.services.LastSeenService
 import org.slf4j.LoggerFactory
-import java.net.DatagramSocket
-import java.net.InetAddress
 import java.util.*
 
 fun printGitVersion() {
@@ -24,21 +22,15 @@ fun printGitVersion() {
     }
 }
 
-private fun getIp(): String {
-    val datagramSocket = DatagramSocket()
-    val address = InetAddress.getByName("8.8.8.8")
-    return datagramSocket.use {
-        it.connect(address, 80)
-        it.localAddress.hostAddress
-    }
-}
-
-fun main(args: Array<String>) {
+fun main() {
     printGitVersion()
 
-    val databaseConnection = DatabaseConnection(Configuration.databaseUrl,
-            Configuration.databaseUsername,
-            Configuration.databasePassword)
+    val databaseConnection = DatabaseConnection(
+        Configuration.databaseUrl,
+        Configuration.databaseUsername,
+        Configuration.databasePassword,
+        Configuration.poolSize
+    )
 
     val serverPort = Configuration.port
 

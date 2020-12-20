@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-client-table
+      author: "Rafael Ostertag"
+      changes:
+        - createTable:
+            tableName: clients
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name: ip
+                  type: varchar(45)
+                  constraints:
+                    - nullable: false
+                    - unique: true
+  - changeSet:
+      id: 001-seens-table
+      author: "Rafael Ostertag"
+      changes:
+        - createTable:
+            tableName: seens
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name: client
+                  type: int
+              - column:
+                  name: seen_on
+                  type: datetime
+  - changeSet:
+      id: 001-seens-foreign-key
+      author: "Rafael Ostertag"
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: seens
+            baseColumnNames: client
+            constraintName: fk_seens_client
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedTableName: clients
+            referencedColumnNames: id
+  - changeSet:
+      id: 001-seens-client-idx
+      author: "Rafael Ostertag"
+      changes:
+        - createIndex:
+            indexName: seens_client_idx
+            tableName: seens
+            columns:
+              - column:
+                  name: client
+  - changeSet:
+      id: 001-seens-client-seen-on-idx
+      author: "Rafael Ostertag"
+      changes:
+        - createIndex:
+            indexName: seens_client_seen_on_idx
+            tableName: seens
+            columns:
+              - column:
+                  name: client
+              - column:
+                  name: seen_on

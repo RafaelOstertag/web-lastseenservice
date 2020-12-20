@@ -13,4 +13,7 @@ object Configuration {
     val databasePassword by lazy {
         System.getenv("DATABASE_PASSWORD") ?: ""
     }
+    val poolSize: Int by lazy {
+        System.getenv("DATABASE_POOL_SIZE")?.toInt() ?: 10
+    }
 }

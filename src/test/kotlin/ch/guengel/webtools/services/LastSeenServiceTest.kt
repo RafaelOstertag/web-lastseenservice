@@ -6,8 +6,7 @@ import ch.guengel.webtools.dao.Seen
 import ch.guengel.webtools.dao.Seens
 import ch.guengel.webtools.testDatabaseConnection
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.exposed.sql.SchemaUtils.create
-import org.jetbrains.exposed.sql.SchemaUtils.drop
+import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 import org.junit.jupiter.api.BeforeEach
@@ -25,12 +24,12 @@ internal class LastSeenServiceTest {
     @BeforeEach
     fun setUp() {
         transaction(
-                transactionIsolation = Connection.TRANSACTION_REPEATABLE_READ,
-                db = testDatabaseConnection.db,
-                repetitionAttempts = 0
+            transactionIsolation = Connection.TRANSACTION_REPEATABLE_READ,
+            db = testDatabaseConnection.db,
+            repetitionAttempts = 0
         ) {
-            drop(Seens, Clients)
-            create(Seens, Clients)
+            Seens.deleteAll()
+            Clients.deleteAll()
         }
     }
 
@@ -86,6 +85,22 @@ internal class LastSeenServiceTest {
                 assertEquals(2, client.seens.count())
                 assertEquals(client.ip, addIpNow1.ip)
             }
+        }
+    }
+
+    @Test
+    fun `count occurences since`() {
+        runBlocking {
+            lastSeenService.addIpNow("8.8.8.8")
+
+            var countOccurrencesSince = lastSeenService.countOccurrencesSince("8.8.8.8", "10s")
+            assertEquals("8.8.8.8", countOccurrencesSince.ip)
+            assertEquals(1, countOccurrencesSince.timesSeen)
+
+            lastSeenService.addIpNow("8.8.8.8")
+            countOccurrencesSince = lastSeenService.countOccurrencesSince("8.8.8.8", "10s")
+            assertEquals("8.8.8.8", countOccurrencesSince.ip)
+            assertEquals(2, countOccurrencesSince.timesSeen)
         }
     }
 

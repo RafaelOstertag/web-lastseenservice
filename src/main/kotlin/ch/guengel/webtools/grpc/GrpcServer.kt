@@ -7,23 +7,25 @@ import io.grpc.ServerBuilder
 import org.slf4j.LoggerFactory
 import java.util.concurrent.TimeUnit
 
-class GrpcServer(private val serverBuilder: ServerBuilder<*>,
-                 val port: Int,
-                 lastSeenGrpcService: LastSeenGrpcService,
-                 healthGrpcService: HealthGrpcService) {
+class GrpcServer(
+    serverBuilder: ServerBuilder<*>,
+    private val port: Int,
+    lastSeenGrpcService: LastSeenGrpcService,
+    healthGrpcService: HealthGrpcService
+) {
 
     private val server: Server = serverBuilder
-            .addService(lastSeenGrpcService)
-            .addService(healthGrpcService)
-            .build()
+        .addService(lastSeenGrpcService)
+        .addService(healthGrpcService)
+        .build()
 
     constructor(port: Int, lastSeenGrpcService: LastSeenGrpcService, healthGrpcService: HealthGrpcService) : this(
-            ServerBuilder.forPort(port),
+        ServerBuilder.forPort(port),
             port,
             lastSeenGrpcService,
             healthGrpcService)
 
-    fun start() {
+    private fun start() {
         server.start()
         logger.info("Server started, listening on port $port")
 
