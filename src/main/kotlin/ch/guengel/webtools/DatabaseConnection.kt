@@ -15,15 +15,16 @@ import org.slf4j.LoggerFactory
 import javax.sql.DataSource
 
 class DatabaseConnection(
-        jdbcUrl: String,
-        userName: String = "",
-        password: String = ""
+    jdbcUrl: String,
+    userName: String = "",
+    password: String = "",
+    poolSize: Int = 10
 ) {
     private val dataSource: HikariDataSource
     val database: Database
 
     init {
-        val config = createConfig(jdbcUrl, userName, password)
+        val config = createConfig(jdbcUrl, userName, password, poolSize)
         dataSource = runBlocking {
             val dataSource = connect(config)
             setupDatabase(dataSource)
@@ -34,7 +35,7 @@ class DatabaseConnection(
         logger.info("Connected to $jdbcUrl as $userName")
     }
 
-    private fun createConfig(jdbcUrl: String, userName: String, password: String): HikariConfig {
+    private fun createConfig(jdbcUrl: String, userName: String, password: String, poolSize: Int): HikariConfig {
         val config = HikariConfig()
         config.jdbcUrl = jdbcUrl
         config.username = userName
@@ -43,6 +44,9 @@ class DatabaseConnection(
         config.addDataSourceProperty("cachePrepStmts", "true")
         config.addDataSourceProperty("prepStmtCacheSize", "250")
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
+        config.connectionTestQuery = "SELECT 1=1"
+        config.idleTimeout = 60000
+        config.maximumPoolSize = poolSize
         return config
     }
 

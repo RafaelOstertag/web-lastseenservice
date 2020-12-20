@@ -52,6 +52,8 @@ spec:
                 secretKeyRef:
                   name: lastseen-service
                   key: password
+            - name: DATABASE_POOL_SIZE
+              value: { { .Values.app.database.poolSize } }
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

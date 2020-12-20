@@ -28,7 +28,8 @@ fun main() {
     val databaseConnection = DatabaseConnection(
         Configuration.databaseUrl,
         Configuration.databaseUsername,
-        Configuration.databasePassword
+        Configuration.databasePassword,
+        Configuration.poolSize
     )
 
     val serverPort = Configuration.port
