@@ -1,3 +1,4 @@
+# @formatter:off
 # Default values for lastseenservice.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -6,7 +7,7 @@ replicaCount: 1
 
 image:
   repository: rafaelostertag/lastseen-service
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
@@ -28,7 +29,7 @@ podAnnotations: { }
 podSecurityContext: { }
 # fsGroup: 2000
 
-securityContext: { }
+securityContext:
   # capabilities:
   #   drop:
   #   - ALL
@@ -74,5 +75,6 @@ tolerations: [ ]
 
 affinity: { }
 
-app.database:
-  poolSize: 10
+app:
+  database:
+    poolSize: 10
