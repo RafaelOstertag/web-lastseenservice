@@ -20,7 +20,7 @@
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
         <kotlin.version>1.4.21</kotlin.version>
         <kotlinx-coroutines-core.version>1.4.2</kotlinx-coroutines-core.version>
-        <lastseen-grpc.version>1.0.4</lastseen-grpc.version>
+        <lastseen-grpc.version>1.0.7</lastseen-grpc.version>
         <logback.version>1.2.3</logback.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <postgres.version>42.2.18</postgres.version>
