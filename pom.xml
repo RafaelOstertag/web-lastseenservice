@@ -15,9 +15,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <exposed.version>0.28.1</exposed.version>
-        <h2.version>1.4.197</h2.version>
-        <hikaricp.version>3.2.0</hikaricp.version>
-        <junit-jupiter.version>5.5.2</junit-jupiter.version>
+        <h2.version>1.4.200</h2.version>
+        <hikaricp.version>3.4.5</hikaricp.version>
+        <junit-jupiter.version>5.7.0</junit-jupiter.version>
         <kotlin.version>1.4.21</kotlin.version>
         <kotlinx-coroutines-core.version>1.4.2</kotlinx-coroutines-core.version>
         <lastseen-grpc.version>1.0.7</lastseen-grpc.version>
@@ -30,7 +30,9 @@
 
         <dependency-check-maven.version>6.0.3</dependency-check-maven.version>
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 
         <!-- Sonar -->
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -185,7 +187,7 @@
 
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>${maven-assembly-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -216,7 +218,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.4</version>
+                <version>${git-commit-id-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>
