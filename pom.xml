@@ -22,7 +22,6 @@
         <kotlinx-coroutines-core.version>1.4.2</kotlinx-coroutines-core.version>
         <lastseen-grpc.version>1.0.7</lastseen-grpc.version>
         <logback.version>1.2.3</logback.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <postgres.version>42.2.18</postgres.version>
         <logstash-gelf.version>1.14.1</logstash-gelf.version>
         <liquibase-core.version>4.2.2</liquibase-core.version>
@@ -30,11 +29,14 @@
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
 
         <dependency-check-maven.version>6.0.3</dependency-check-maven.version>
+        <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 
         <!-- Sonar -->
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
         <sonar.organization>rafaelostertag</sonar.organization>
+        <sonar.junit.reportPaths>target/failsafe-reports,target/surefire-reports</sonar.junit.reportPaths>
     </properties>
 
     <dependencies>
@@ -545,6 +547,38 @@
                     <evaluateOnCommit>HEAD</evaluateOnCommit>
                 </configuration>
 
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report-integration</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
