@@ -6,7 +6,7 @@
 
     <groupId>ch.guengel.webtools</groupId>
     <artifactId>lastseenservice</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Last Seen Service</name>
@@ -15,26 +15,30 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <exposed.version>0.28.1</exposed.version>
-        <h2.version>1.4.197</h2.version>
-        <hikaricp.version>3.2.0</hikaricp.version>
-        <junit-jupiter.version>5.5.2</junit-jupiter.version>
+        <h2.version>1.4.200</h2.version>
+        <hikaricp.version>3.4.5</hikaricp.version>
+        <junit-jupiter.version>5.7.0</junit-jupiter.version>
         <kotlin.version>1.4.21</kotlin.version>
         <kotlinx-coroutines-core.version>1.4.2</kotlinx-coroutines-core.version>
         <lastseen-grpc.version>1.0.7</lastseen-grpc.version>
         <logback.version>1.2.3</logback.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <postgres.version>42.2.18</postgres.version>
         <logstash-gelf.version>1.14.1</logstash-gelf.version>
         <liquibase-core.version>4.2.2</liquibase-core.version>
         <snakeyaml.version>1.27</snakeyaml.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
 
-        <dependency-check-maven.version>6.0.3</dependency-check-maven.version>
+        <dependency-check-maven.version>6.0.4</dependency-check-maven.version>
+        <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 
         <!-- Sonar -->
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
         <sonar.organization>rafaelostertag</sonar.organization>
+        <sonar.junit.reportPaths>target/failsafe-reports,target/surefire-reports</sonar.junit.reportPaths>
     </properties>
 
     <dependencies>
@@ -159,6 +163,9 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <configuration>
+                    <jvmTarget>11</jvmTarget>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -180,7 +187,7 @@
 
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>${maven-assembly-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -211,7 +218,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.4</version>
+                <version>${git-commit-id-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>
@@ -340,35 +347,6 @@
                        Default value is `false`.
                     -->
                     <runOnlyOnce>false</runOnlyOnce>
-
-                    <!-- @since 2.1.9 -->
-                    <!--
-                        Can be used to exclude certain properties from being emitted into the resulting file.
-                        May be useful when you want to hide {@code git.remote.origin.url} (maybe because it contains your repo password?),
-                        or the email of the committer etc.
-
-                        Each value may be globbing, that is, you can write {@code git.commit.user.*} to exclude both, the {@code name},
-                        as well as {@code email} properties from being emitted into the resulting files.
-
-                        Please note that the strings here are Java regexes ({@code .*} is globbing, not plain {@code *}).
-                    -->
-                    <excludeProperties>
-                        <!-- <excludeProperty>git.user.*</excludeProperty> -->
-                    </excludeProperties>
-
-                    <!-- @since 2.1.14 -->
-                    <!--
-                        Can be used to include only certain properties into the resulting file.
-                        Will be overruled by the exclude properties.
-
-                        Each value may be globbing, that is, you can write {@code git.commit.user.*} to include both, the {@code name},
-                        as well as {@code email} properties into the resulting files.
-
-                        Please note that the strings here are Java regexes ({@code .*} is globbing, not plain {@code *}).
-                    -->
-                    <includeOnlyProperties>
-                        <!-- <includeOnlyProperty>^git.commit.id.full$</includeOnlyProperty> -->
-                    </includeOnlyProperties>
 
                     <!-- @since 2.2.3 -->
                     <!--
@@ -542,6 +520,38 @@
                     <evaluateOnCommit>HEAD</evaluateOnCommit>
                 </configuration>
 
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report-integration</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

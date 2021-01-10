@@ -22,27 +22,42 @@ pipeline {
     stages {
         stage('Build & Test') {
             steps {
-                sh 'mvn -B test'
+                configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
+                    sh 'mvn -B -s "$MAVEN_SETTINGS_XML" verify'
+                }
             }
-        }
 
-        stage('Publish test results') {
-            steps {
-                junit '**/failsafe-reports/*.xml,**/surefire-reports/*.xml'
+            post {
+                always {
+                    junit '**/failsafe-reports/*.xml,**/surefire-reports/*.xml'
+                    jacoco()
+                }
             }
         }
 
         stage('Sonarcloud') {
             steps {
-                withSonarQubeEnv(installationName: 'Sonarcloud', credentialsId: 'e8795d01-550a-4c05-a4be-41b48b22403f') {
-                    sh label: 'sonarcloud', script: "mvn $SONAR_MAVEN_GOAL"
+                configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
+                    withSonarQubeEnv(installationName: 'Sonarcloud', credentialsId: 'e8795d01-550a-4c05-a4be-41b48b22403f') {
+                        sh label: 'sonarcloud', script: "mvn -B -s \"$MAVEN_SETTINGS_XML\" -Dsonar.branch.name=${env.BRANCH_NAME} $SONAR_MAVEN_GOAL"
+                    }
+                }
+            }
+        }
+
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 30, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
 
         stage("Check Dependencies") {
             steps {
-                sh 'mvn -Psecurity-scan dependency-check:check'
+                configFileProvider([configFile(fileId: '96a603cc-e1a4-4d5b-a7e9-ae1aa566cdfc', variable: 'MAVEN_SETTINGS_XML')]) {
+                    sh 'mvn -B -s "$MAVEN_SETTINGS_XML" -Psecurity-scan dependency-check:check'
+                }
                 dependencyCheckPublisher failedTotalCritical: 1, failedTotalHigh: 5, failedTotalLow: 8, failedTotalMedium: 8, pattern: '**/dependency-check-report.xml', unstableTotalCritical: 0, unstableTotalHigh: 4, unstableTotalLow: 8, unstableTotalMedium: 8
             }
         }
@@ -63,11 +78,7 @@ pipeline {
             }
         }
 
-        stage('Build & Push Docker Image') {
-            agent {
-                label "arm64&&docker"
-            }
-
+        stage('Trigger k8s deployment') {
             environment {
                 VERSION = sh returnStdout: true, script: "mvn -B help:evaluate '-Dexpression=project.version' | grep -v '\\[' | tr -d '\\n'"
             }
@@ -80,34 +91,7 @@ pipeline {
             }
 
             steps {
-                sh "docker build --build-arg 'VERSION=${env.VERSION}' -t rafaelostertag/lastseen-service:${env.VERSION} docker"
-                withCredentials([usernamePassword(credentialsId: '750504ce-6f4f-4252-9b2b-5814bd561430', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    sh 'docker login --username "$USERNAME" --password "$PASSWORD"'
-                    sh "docker push rafaelostertag/lastseen-service:${env.VERSION}"
-                }
-            }
-        }
-
-        stage('Deploy to k8s') {
-            agent {
-                label "helm"
-            }
-
-            environment {
-                VERSION = sh returnStdout: true, script: "mvn -B help:evaluate '-Dexpression=project.version' | grep -v '\\[' | tr -d '\\n'"
-            }
-
-            when {
-                branch 'master'
-                not {
-                    triggeredBy "TimerTrigger"
-                }
-            }
-
-            steps {
-                withKubeConfig(credentialsId: 'a9fe556b-01b0-4354-9a65-616baccf9cac') {
-                    sh "helm upgrade -n portscanner -i --set image.tag=${env.VERSION} lastseenservice helm/lastseenservice"
-                }
+                build wait: false, job: '../docker/lastseenservice', parameters: [string(name: 'VERSION', value: env.VERSION), booleanParam(name: 'DEPLOY', value: true)]
             }
         }
     }
