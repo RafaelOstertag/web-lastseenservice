@@ -24,7 +24,7 @@
         <logback.version>1.2.10</logback.version>
         <postgres.version>42.3.3</postgres.version>
         <logstash-gelf.version>1.15.0</logstash-gelf.version>
-        <liquibase-core.version>4.7.1</liquibase-core.version>
+        <liquibase-core.version>4.8.0</liquibase-core.version>
         <snakeyaml.version>1.30</snakeyaml.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
 
