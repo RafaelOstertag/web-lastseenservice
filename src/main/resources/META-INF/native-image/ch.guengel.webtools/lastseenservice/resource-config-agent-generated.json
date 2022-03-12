@@ -1,0 +1,83 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "\\QMETA-INF/services/io.grpc.ServerProvider\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/java.sql.Driver\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.change.Change\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.changelog.ChangeLogHistoryService\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.configuration.AutoloadedConfigurations\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.configuration.ConfigurationValueProvider\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.database.Database\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.datatype.LiquibaseDataType\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.diff.compare.DatabaseObjectComparator\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.executor.Executor\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.hub.HubService\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.license.LicenseService\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.lockservice.LockService\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.logging.LogService\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.parser.ChangeLogParser\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.servicelocator.ServiceLocator\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.snapshot.SnapshotGenerator\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/liquibase.sqlgenerator.SqlGenerator\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/org.jetbrains.exposed.sql.DatabaseConnectionAutoRegistration\\E"
+      },
+      {
+        "pattern": "\\Qliquibase.build.properties\\E"
+      },
+      {
+        "pattern": "\\Qorg/joda/time/tz/data/Europe/Zurich\\E"
+      },
+      {
+        "pattern": "\\Qorg/joda/time/tz/data/ZoneInfoMap\\E"
+      },
+      {
+        "pattern": "\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
+      }
+    ]
+  },
+  "bundles": [
+    {
+      "name": "liquibase/i18n/liquibase-core",
+      "locales": [
+        ""
+      ]
+    }
+  ]
+}

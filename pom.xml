@@ -6,7 +6,7 @@
 
     <groupId>ch.guengel.webtools</groupId>
     <artifactId>lastseenservice</artifactId>
-    <version>3.0.9</version>
+    <version>3.0.10-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Last Seen Service</name>
@@ -20,13 +20,14 @@
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <kotlin.version>1.6.10</kotlin.version>
         <kotlinx-coroutines-core.version>1.6.0</kotlinx-coroutines-core.version>
-        <lastseen-grpc.version>1.0.8</lastseen-grpc.version>
+        <lastseen-grpc.version>1.1.0</lastseen-grpc.version>
         <logback.version>1.2.10</logback.version>
         <postgres.version>42.3.3</postgres.version>
         <logstash-gelf.version>1.15.0</logstash-gelf.version>
         <liquibase-core.version>4.8.0</liquibase-core.version>
         <snakeyaml.version>1.30</snakeyaml.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
+        <slf4j.version>1.7.36</slf4j.version>
 
         <dependency-check-maven.version>6.5.3</dependency-check-maven.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
@@ -80,6 +81,12 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>${liquibase-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.mattbertolini/liquibase-slf4j -->
@@ -165,6 +172,9 @@
                 <version>${kotlin.version}</version>
                 <configuration>
                     <jvmTarget>11</jvmTarget>
+                    <args>
+                        <arg>-opt-in=kotlin.RequiresOptIn</arg>
+                    </args>
                 </configuration>
                 <executions>
                     <execution>
