@@ -7,4 +7,11 @@
         <packageUrl regex="true">^pkg:maven/ch\.guengel\.lastseenservice/lastseen\-grpc@.*$</packageUrl>
         <cpe>cpe:/a:grpc:grpc</cpe>
     </suppress>
+    <suppress>
+        <notes><![CDATA[
+   file name: liquibase-slf4j-4.0.0.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/com\.mattbertolini/liquibase\-slf4j@.*$</packageUrl>
+        <cve>CVE-2022-0839</cve>
+    </suppress>
 </suppressions>
