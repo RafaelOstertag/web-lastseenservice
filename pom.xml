@@ -6,7 +6,7 @@
 
     <groupId>ch.guengel.webtools</groupId>
     <artifactId>lastseenservice</artifactId>
-    <version>3.0.11</version>
+    <version>3.0.12-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Last Seen Service</name>
@@ -20,7 +20,7 @@
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <kotlin.version>1.6.10</kotlin.version>
         <kotlinx-coroutines-core.version>1.6.0</kotlinx-coroutines-core.version>
-        <lastseen-grpc.version>1.1.0</lastseen-grpc.version>
+        <lastseen-grpc.version>1.1.2</lastseen-grpc.version>
         <logback.version>1.2.10</logback.version>
         <postgres.version>42.3.3</postgres.version>
         <liquibase-core.version>4.9.0</liquibase-core.version>
@@ -28,7 +28,7 @@
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
         <slf4j.version>1.7.36</slf4j.version>
 
-        <dependency-check-maven.version>6.5.3</dependency-check-maven.version>
+        <dependency-check-maven.version>7.1.0</dependency-check-maven.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
@@ -561,23 +561,22 @@
 
     <repositories>
         <repository>
-            <id>jcenter</id>
-            <name>jcenter</name>
-            <url>https://jcenter.bintray.com</url>
-        </repository>
-        <repository>
-            <id>webtools-maven</id>
-            <name>Webtools Maven Repository</name>
-            <url>https://colossus.kruemel.home/nexus/repository/webtools-maven/</url>
+            <id>rafaelostertag.jfrog.io</id>
+            <url>https://rafaelostertag.jfrog.io/artifactory/maven</url>
         </repository>
     </repositories>
 
     <distributionManagement>
         <repository>
-            <id>webtools-maven</id>
-            <name>Webtools Maven Repository</name>
-            <url>https://colossus.kruemel.home/nexus/repository/webtools-maven/</url>
+            <id>rafaelostertag.jfrog.io</id>
+            <name>JFrog Release Repository</name>
+            <url>https://rafaelostertag.jfrog.io/artifactory/maven-release</url>
         </repository>
+        <snapshotRepository>
+            <id>rafaelostertag.jfrog.io</id>
+            <name>JFrog Snapshot Repository</name>
+            <url>https://rafaelostertag.jfrog.io/artifactory/maven-snapshot</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <profiles>
