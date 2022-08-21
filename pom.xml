@@ -22,7 +22,7 @@
         <kotlinx-coroutines-core.version>1.6.0</kotlinx-coroutines-core.version>
         <lastseen-grpc.version>1.1.2</lastseen-grpc.version>
         <logback.version>1.2.10</logback.version>
-        <postgres.version>42.3.3</postgres.version>
+        <postgres.version>42.4.1</postgres.version>
         <liquibase-core.version>4.9.0</liquibase-core.version>
         <snakeyaml.version>1.30</snakeyaml.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
