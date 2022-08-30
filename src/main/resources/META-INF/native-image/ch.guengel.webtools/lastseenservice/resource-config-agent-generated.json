@@ -2,10 +2,19 @@
   "resources": {
     "includes": [
       {
+        "pattern": "\\QMETA-INF/services/ch.qos.logback.classic.spi.Configurator\\E"
+      },
+      {
         "pattern": "\\QMETA-INF/services/io.grpc.ServerProvider\\E"
       },
       {
         "pattern": "\\QMETA-INF/services/java.sql.Driver\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoader\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/kotlin.reflect.jvm.internal.impl.resolve.ExternalOverridabilityCondition\\E"
       },
       {
         "pattern": "\\QMETA-INF/services/liquibase.change.Change\\E"
@@ -26,16 +35,10 @@
         "pattern": "\\QMETA-INF/services/liquibase.datatype.LiquibaseDataType\\E"
       },
       {
-        "pattern": "\\QMETA-INF/services/liquibase.diff.compare.DatabaseObjectComparator\\E"
-      },
-      {
         "pattern": "\\QMETA-INF/services/liquibase.executor.Executor\\E"
       },
       {
         "pattern": "\\QMETA-INF/services/liquibase.hub.HubService\\E"
-      },
-      {
-        "pattern": "\\QMETA-INF/services/liquibase.license.LicenseService\\E"
       },
       {
         "pattern": "\\QMETA-INF/services/liquibase.lockservice.LockService\\E"
@@ -59,16 +62,25 @@
         "pattern": "\\QMETA-INF/services/org.jetbrains.exposed.sql.DatabaseConnectionAutoRegistration\\E"
       },
       {
+        "pattern": "\\QMETA-INF/services/org.slf4j.spi.SLF4JServiceProvider\\E"
+      },
+      {
+        "pattern": "\\Qdb/changelog/001-initial-setup.yaml\\E"
+      },
+      {
+        "pattern": "\\Qdb/changelog/db.changelog-master.yaml\\E"
+      },
+      {
         "pattern": "\\Qliquibase.build.properties\\E"
+      },
+      {
+        "pattern": "\\Qlogback.xml\\E"
       },
       {
         "pattern": "\\Qorg/joda/time/tz/data/Europe/Zurich\\E"
       },
       {
         "pattern": "\\Qorg/joda/time/tz/data/ZoneInfoMap\\E"
-      },
-      {
-        "pattern": "\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
       }
     ]
   },

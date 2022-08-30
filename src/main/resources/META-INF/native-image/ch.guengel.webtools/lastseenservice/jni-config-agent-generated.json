@@ -22,14 +22,6 @@
     ]
   },
   {
-    "name": "java.security.SystemConfigurator",
-    "fields": [
-      {
-        "name": "sdebug"
-      }
-    ]
-  },
-  {
     "name": "sun.instrument.InstrumentationImpl",
     "methods": [
       {

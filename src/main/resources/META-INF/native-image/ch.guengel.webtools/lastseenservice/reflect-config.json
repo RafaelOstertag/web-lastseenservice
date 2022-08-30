@@ -1,0 +1,12 @@
+[
+  {
+    "name": "java.util.ArrayList",
+    "queryAllPublicMethods": true,
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  }
+]
