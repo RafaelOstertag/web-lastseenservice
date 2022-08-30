@@ -6,31 +6,6 @@
     "name": "[Ljava.sql.Statement;"
   },
   {
-    "name": "[Lliquibase.pro.packaged.bW;"
-  },
-  {
-    "name": "ch.guengel.webtools.dao.Client",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": [
-          "org.jetbrains.exposed.dao.id.EntityID"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "ch.guengel.webtools.dao.Seen",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": [
-          "org.jetbrains.exposed.dao.id.EntityID"
-        ]
-      }
-    ]
-  },
-  {
     "name": "ch.qos.logback.classic.encoder.PatternLayoutEncoder",
     "queryAllPublicMethods": true,
     "methods": [
@@ -138,124 +113,11 @@
     ]
   },
   {
-    "name": "com.datical.liquibase.ext.appdba.markunused.change.MarkUnsedChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.appdba.synonym.change.CreateSynonymChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.appdba.synonym.change.DropSynonymChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.license.LicenseValidationChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.checkconstraint.change.AddCheckConstraintChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.checkconstraint.change.DisableCheckConstraintChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.checkconstraint.change.DropCheckConstraintChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.checkconstraint.change.EnableCheckConstraintChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.databasepackage.change.CreatePackageBodyChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.databasepackage.change.CreatePackageChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.databasepackage.change.DropPackageBodyChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.databasepackage.change.DropPackageChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.function.change.CreateFunctionChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.function.change.DropFunctionChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.trigger.change.CreateTriggerChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.trigger.change.DisableTriggerChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.trigger.change.DropTriggerChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.trigger.change.EnableTriggerChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.datical.liquibase.ext.storedlogic.trigger.change.RenameTriggerChange",
-    "queryAllPublicMethods": true
-  },
-  {
-    "name": "com.google.common.util.concurrent.AbstractFuture",
-    "fields": [
-      {
-        "name": "listeners"
-      },
-      {
-        "name": "value"
-      },
-      {
-        "name": "waiters"
-      }
-    ]
-  },
-  {
-    "name": "com.google.common.util.concurrent.AbstractFuture$Waiter",
-    "fields": [
-      {
-        "name": "next"
-      },
-      {
-        "name": "thread"
-      }
-    ]
-  },
-  {
     "name": "com.google.protobuf.ExtensionRegistry",
     "methods": [
       {
         "name": "getEmptyRegistry",
         "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "com.intellij.rt.execution.application.AppMainV2$Agent",
-    "methods": [
-      {
-        "name": "premain",
-        "parameterTypes": [
-          "java.lang.String",
-          "java.lang.instrument.Instrumentation"
-        ]
       }
     ]
   },
@@ -291,143 +153,6 @@
     "allDeclaredFields": true
   },
   {
-    "name": "io.grpc.netty.AbstractNettyHandler",
-    "queriedMethods": [
-      {
-        "name": "channelActive",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "exceptionCaught",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Throwable"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.grpc.netty.NettyServer$1"
-  },
-  {
-    "name": "io.grpc.netty.NettyServerHandler",
-    "queriedMethods": [
-      {
-        "name": "channelInactive",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "close",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "write",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object",
-          "io.netty.channel.ChannelPromise"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.grpc.netty.ProtocolNegotiators$GrpcNegotiationHandler",
-    "queriedMethods": [
-      {
-        "name": "userEventTriggered",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.grpc.netty.ProtocolNegotiators$ProtocolNegotiationHandler",
-    "queriedMethods": [
-      {
-        "name": "userEventTriggered",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.grpc.netty.ProtocolNegotiators$WaitUntilActiveHandler",
-    "queriedMethods": [
-      {
-        "name": "channelActive",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.grpc.netty.WriteBufferingAndExceptionHandler",
-    "queriedMethods": [
-      {
-        "name": "channelInactive",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "channelRead",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object"
-        ]
-      },
-      {
-        "name": "close",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "connect",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.net.SocketAddress",
-          "java.net.SocketAddress",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "exceptionCaught",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Throwable"
-        ]
-      },
-      {
-        "name": "flush",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "write",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object",
-          "io.netty.channel.ChannelPromise"
-        ]
-      }
-    ]
-  },
-  {
     "name": "io.netty.bootstrap.ServerBootstrap$1"
   },
   {
@@ -452,77 +177,6 @@
   {
     "name": "io.netty.buffer.AbstractByteBufAllocator",
     "queryAllDeclaredMethods": true
-  },
-  {
-    "name": "io.netty.buffer.AbstractReferenceCountedByteBuf",
-    "fields": [
-      {
-        "name": "refCnt"
-      }
-    ]
-  },
-  {
-    "name": "io.netty.channel.ChannelDuplexHandler",
-    "queriedMethods": [
-      {
-        "name": "bind",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.net.SocketAddress",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "close",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "connect",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.net.SocketAddress",
-          "java.net.SocketAddress",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "deregister",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "disconnect",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "flush",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "read",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "write",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object",
-          "io.netty.channel.ChannelPromise"
-        ]
-      }
-    ]
   },
   {
     "name": "io.netty.channel.ChannelInboundHandlerAdapter",
@@ -568,13 +222,6 @@
         "name": "channelWritabilityChanged",
         "parameterTypes": [
           "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "exceptionCaught",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Throwable"
         ]
       },
       {
@@ -787,95 +434,12 @@
     ]
   },
   {
-    "name": "io.netty.handler.codec.ByteToMessageDecoder",
-    "queriedMethods": [
-      {
-        "name": "channelRead",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object"
-        ]
-      },
-      {
-        "name": "userEventTriggered",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.lang.Object"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "io.netty.handler.codec.http2.Http2ConnectionHandler",
-    "queriedMethods": [
-      {
-        "name": "bind",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.net.SocketAddress",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "channelReadComplete",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "channelWritabilityChanged",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "connect",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "java.net.SocketAddress",
-          "java.net.SocketAddress",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "deregister",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "disconnect",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext",
-          "io.netty.channel.ChannelPromise"
-        ]
-      },
-      {
-        "name": "flush",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      },
-      {
-        "name": "read",
-        "parameterTypes": [
-          "io.netty.channel.ChannelHandlerContext"
-        ]
-      }
-    ]
-  },
-  {
     "name": "io.netty.util.AbstractReferenceCounted",
     "fields": [
       {
         "name": "refCnt"
       }
     ]
-  },
-  {
-    "name": "io.netty.util.ReferenceCountUtil",
-    "queryAllDeclaredMethods": true
   },
   {
     "name": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
@@ -902,40 +466,10 @@
     ]
   },
   {
-    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueConsumerIndexField",
-    "fields": [
-      {
-        "name": "consumerIndex"
-      }
-    ]
-  },
-  {
-    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerIndexField",
-    "fields": [
-      {
-        "name": "producerIndex"
-      }
-    ]
-  },
-  {
-    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerLimitField",
-    "fields": [
-      {
-        "name": "producerLimit"
-      }
-    ]
-  },
-  {
     "name": "java.beans.PropertyVetoException"
   },
   {
     "name": "java.io.FilePermission"
-  },
-  {
-    "name": "java.lang.Comparable",
-    "allDeclaredFields": true,
-    "allDeclaredClasses": true,
-    "queryAllDeclaredMethods": true
   },
   {
     "name": "java.lang.Object",
@@ -945,13 +479,21 @@
     "name": "java.lang.RuntimePermission"
   },
   {
-    "name": "java.lang.String"
-  },
-  {
-    "name": "java.lang.Throwable",
+    "name": "java.lang.SecurityManager",
     "methods": [
       {
-        "name": "getSuppressed",
+        "name": "checkPermission",
+        "parameterTypes": [
+          "java.security.Permission"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.lang.System",
+    "methods": [
+      {
+        "name": "getSecurityManager",
         "parameterTypes": []
       }
     ]
@@ -972,27 +514,6 @@
         "name": "getInputArguments",
         "parameterTypes": []
       },
-      {
-        "name": "getName",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "java.lang.reflect.Executable",
-    "methods": [
-      {
-        "name": "getParameters",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "java.lang.reflect.Method"
-  },
-  {
-    "name": "java.lang.reflect.Parameter",
-    "methods": [
       {
         "name": "getName",
         "parameterTypes": []
@@ -1057,6 +578,17 @@
     ]
   },
   {
+    "name": "java.security.AccessController",
+    "methods": [
+      {
+        "name": "doPrivileged",
+        "parameterTypes": [
+          "java.security.PrivilegedExceptionAction"
+        ]
+      }
+    ]
+  },
+  {
     "name": "java.security.AllPermission"
   },
   {
@@ -1081,15 +613,6 @@
     "name": "java.time.LocalDateTime"
   },
   {
-    "name": "java.util.ArrayList",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
     "name": "java.util.PropertyPermission"
   },
   {
@@ -1110,23 +633,20 @@
       {
         "name": "<init>",
         "parameterTypes": []
-      },
+      }
+    ],
+    "queriedMethods": [
       {
         "name": "add",
         "parameterTypes": [
           "long"
         ]
-      }
-    ],
-    "queriedMethods": [
+      },
       {
         "name": "sum",
         "parameterTypes": []
       }
     ]
-  },
-  {
-    "name": "javax.management.ObjectName"
   },
   {
     "name": "jdk.internal.misc.Unsafe",
@@ -1177,18 +697,6 @@
   },
   {
     "name": "kotlin.Unit"
-  },
-  {
-    "name": "kotlin.internal.jdk8.JDK8PlatformImplementations",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "kotlin.jvm.functions.Function0"
   },
   {
     "name": "kotlin.jvm.internal.DefaultConstructorMarker"
@@ -1352,7 +860,19 @@
         ]
       },
       {
+        "name": "setBaseTableCatalogName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
         "name": "setBaseTableName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setBaseTableSchemaName",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -1361,6 +881,24 @@
         "name": "setConstraintName",
         "parameterTypes": [
           "java.lang.String"
+        ]
+      },
+      {
+        "name": "setDeferrable",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "setDeleteCascade",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "setInitiallyDeferred",
+        "parameterTypes": [
+          "java.lang.Boolean"
         ]
       },
       {
@@ -1382,9 +920,33 @@
         ]
       },
       {
+        "name": "setReferencedTableCatalogName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
         "name": "setReferencedTableName",
         "parameterTypes": [
           "java.lang.String"
+        ]
+      },
+      {
+        "name": "setReferencedTableSchemaName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setReferencesUniqueColumn",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "setValidate",
+        "parameterTypes": [
+          "java.lang.Boolean"
         ]
       }
     ]
@@ -1450,7 +1012,25 @@
         "parameterTypes": []
       },
       {
+        "name": "setCatalogName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setClustered",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
         "name": "setIndexName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setSchemaName",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -1459,6 +1039,18 @@
         "name": "setTableName",
         "parameterTypes": [
           "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTablespace",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setUnique",
+        "parameterTypes": [
+          "java.lang.Boolean"
         ]
       }
     ]
@@ -1504,7 +1096,31 @@
         "parameterTypes": []
       },
       {
+        "name": "setCatalogName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setRemarks",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setSchemaName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
         "name": "setTableName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTablespace",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -1657,6 +1273,15 @@
     ]
   },
   {
+    "name": "liquibase.configuration.ConfiguredValueModifierFactory",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
     "name": "liquibase.configuration.LiquibaseConfiguration",
     "methods": [
       {
@@ -1676,6 +1301,51 @@
   },
   {
     "name": "liquibase.datatype.core.BooleanType",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "liquibase.datatype.core.ClobType",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "liquibase.datatype.core.DateTimeType",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "liquibase.datatype.core.IntType",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "liquibase.datatype.core.TextDataTypeSnowflake",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "liquibase.datatype.core.TimestampNTZTypeSnowflake",
     "methods": [
       {
         "name": "<init>",
@@ -1720,15 +1390,6 @@
     ]
   },
   {
-    "name": "liquibase.license.LicenseServiceFactory",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
     "name": "liquibase.lockservice.StandardLockService",
     "methods": [
       {
@@ -1751,83 +1412,8 @@
     "queryAllPublicMethods": true
   },
   {
-    "name": "liquibase.pro.packaged.gy",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "liquibase.pro.packaged.mt",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
     "name": "liquibase.serializer.AbstractLiquibaseSerializable",
     "allDeclaredFields": true
-  },
-  {
-    "name": "org.jetbrains.exposed.dao.id.EntityID"
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.Column",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": [
-          "org.jetbrains.exposed.sql.Table",
-          "java.lang.String",
-          "org.jetbrains.exposed.sql.IColumnType"
-        ]
-      },
-      {
-        "name": "getDbDefaultValue$exposed_core",
-        "parameterTypes": []
-      },
-      {
-        "name": "getDefaultValueFun",
-        "parameterTypes": []
-      },
-      {
-        "name": "getForeignKey",
-        "parameterTypes": []
-      },
-      {
-        "name": "getName",
-        "parameterTypes": []
-      },
-      {
-        "name": "getTable",
-        "parameterTypes": []
-      },
-      {
-        "name": "setDbDefaultValue$exposed_core",
-        "parameterTypes": [
-          "org.jetbrains.exposed.sql.Expression"
-        ]
-      },
-      {
-        "name": "setDefaultValueFun",
-        "parameterTypes": [
-          "kotlin.jvm.functions.Function0"
-        ]
-      },
-      {
-        "name": "setForeignKey",
-        "parameterTypes": [
-          "org.jetbrains.exposed.sql.ForeignKeyConstraint"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.ColumnDiff"
   },
   {
     "name": "org.jetbrains.exposed.sql.ColumnType",
@@ -1845,18 +1431,6 @@
     ]
   },
   {
-    "name": "org.jetbrains.exposed.sql.DdlAware"
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.Expression"
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.ExpressionWithColumnType"
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.ForeignKeyConstraint"
-  },
-  {
     "name": "org.jetbrains.exposed.sql.IColumnType"
   },
   {
@@ -1869,247 +1443,18 @@
     ]
   },
   {
-    "name": "org.jetbrains.exposed.sql.QueryBuilder"
-  },
-  {
-    "name": "org.jetbrains.exposed.sql.Table"
-  },
-  {
     "name": "org.jetbrains.exposed.sql.statements.api.PreparedStatementApi"
   },
   {
     "name": "org.postgresql.Driver"
   },
   {
-    "name": "org.postgresql.PGProperty",
+    "name": "sun.misc.Unsafe",
     "fields": [
       {
-        "name": "ADAPTIVE_FETCH"
-      },
-      {
-        "name": "ADAPTIVE_FETCH_MAXIMUM"
-      },
-      {
-        "name": "ADAPTIVE_FETCH_MINIMUM"
-      },
-      {
-        "name": "ALLOW_ENCODING_CHANGES"
-      },
-      {
-        "name": "APPLICATION_NAME"
-      },
-      {
-        "name": "ASSUME_MIN_SERVER_VERSION"
-      },
-      {
-        "name": "AUTHENTICATION_PLUGIN_CLASS_NAME"
-      },
-      {
-        "name": "AUTOSAVE"
-      },
-      {
-        "name": "BINARY_TRANSFER"
-      },
-      {
-        "name": "BINARY_TRANSFER_DISABLE"
-      },
-      {
-        "name": "BINARY_TRANSFER_ENABLE"
-      },
-      {
-        "name": "CANCEL_SIGNAL_TIMEOUT"
-      },
-      {
-        "name": "CLEANUP_SAVEPOINTS"
-      },
-      {
-        "name": "CONNECT_TIMEOUT"
-      },
-      {
-        "name": "CURRENT_SCHEMA"
-      },
-      {
-        "name": "DATABASE_METADATA_CACHE_FIELDS"
-      },
-      {
-        "name": "DATABASE_METADATA_CACHE_FIELDS_MIB"
-      },
-      {
-        "name": "DEFAULT_ROW_FETCH_SIZE"
-      },
-      {
-        "name": "DISABLE_COLUMN_SANITISER"
-      },
-      {
-        "name": "ESCAPE_SYNTAX_CALL_MODE"
-      },
-      {
-        "name": "GSS_ENC_MODE"
-      },
-      {
-        "name": "GSS_LIB"
-      },
-      {
-        "name": "HIDE_UNPRIVILEGED_OBJECTS"
-      },
-      {
-        "name": "HOST_RECHECK_SECONDS"
-      },
-      {
-        "name": "JAAS_APPLICATION_NAME"
-      },
-      {
-        "name": "JAAS_LOGIN"
-      },
-      {
-        "name": "KERBEROS_SERVER_NAME"
-      },
-      {
-        "name": "LOAD_BALANCE_HOSTS"
-      },
-      {
-        "name": "LOGGER_FILE"
-      },
-      {
-        "name": "LOGGER_LEVEL"
-      },
-      {
-        "name": "LOGIN_TIMEOUT"
-      },
-      {
-        "name": "LOG_SERVER_ERROR_DETAIL"
-      },
-      {
-        "name": "LOG_UNCLOSED_CONNECTIONS"
-      },
-      {
-        "name": "MAX_RESULT_BUFFER"
-      },
-      {
-        "name": "OPTIONS"
-      },
-      {
-        "name": "PASSWORD"
-      },
-      {
-        "name": "PG_DBNAME"
-      },
-      {
-        "name": "PG_HOST"
-      },
-      {
-        "name": "PG_PORT"
-      },
-      {
-        "name": "PREFER_QUERY_MODE"
-      },
-      {
-        "name": "PREPARED_STATEMENT_CACHE_QUERIES"
-      },
-      {
-        "name": "PREPARED_STATEMENT_CACHE_SIZE_MIB"
-      },
-      {
-        "name": "PREPARE_THRESHOLD"
-      },
-      {
-        "name": "PROTOCOL_VERSION"
-      },
-      {
-        "name": "QUOTE_RETURNING_IDENTIFIERS"
-      },
-      {
-        "name": "READ_ONLY"
-      },
-      {
-        "name": "READ_ONLY_MODE"
-      },
-      {
-        "name": "RECEIVE_BUFFER_SIZE"
-      },
-      {
-        "name": "REPLICATION"
-      },
-      {
-        "name": "REWRITE_BATCHED_INSERTS"
-      },
-      {
-        "name": "SEND_BUFFER_SIZE"
-      },
-      {
-        "name": "SERVICE"
-      },
-      {
-        "name": "SOCKET_FACTORY"
-      },
-      {
-        "name": "SOCKET_FACTORY_ARG"
-      },
-      {
-        "name": "SOCKET_TIMEOUT"
-      },
-      {
-        "name": "SSL"
-      },
-      {
-        "name": "SSL_CERT"
-      },
-      {
-        "name": "SSL_FACTORY"
-      },
-      {
-        "name": "SSL_FACTORY_ARG"
-      },
-      {
-        "name": "SSL_HOSTNAME_VERIFIER"
-      },
-      {
-        "name": "SSL_KEY"
-      },
-      {
-        "name": "SSL_MODE"
-      },
-      {
-        "name": "SSL_PASSWORD"
-      },
-      {
-        "name": "SSL_PASSWORD_CALLBACK"
-      },
-      {
-        "name": "SSL_ROOT_CERT"
-      },
-      {
-        "name": "SSPI_SERVICE_CLASS"
-      },
-      {
-        "name": "STRING_TYPE"
-      },
-      {
-        "name": "TARGET_SERVER_TYPE"
-      },
-      {
-        "name": "TCP_KEEP_ALIVE"
-      },
-      {
-        "name": "TCP_NO_DELAY"
-      },
-      {
-        "name": "UNKNOWN_LENGTH"
-      },
-      {
-        "name": "USER"
-      },
-      {
-        "name": "USE_SPNEGO"
-      },
-      {
-        "name": "XML_FACTORY_FACTORY"
+        "name": "theUnsafe"
       }
-    ]
-  },
-  {
-    "name": "sun.misc.Unsafe",
-    "allDeclaredFields": true,
+    ],
     "methods": [
       {
         "name": "invokeCleaner",
@@ -2119,26 +1464,6 @@
       }
     ],
     "queriedMethods": [
-      {
-        "name": "arrayBaseOffset",
-        "parameterTypes": [
-          "java.lang.Class"
-        ]
-      },
-      {
-        "name": "arrayIndexScale",
-        "parameterTypes": [
-          "java.lang.Class"
-        ]
-      },
-      {
-        "name": "copyMemory",
-        "parameterTypes": [
-          "long",
-          "long",
-          "long"
-        ]
-      },
       {
         "name": "copyMemory",
         "parameterTypes": [
@@ -2159,156 +1484,6 @@
       },
       {
         "name": "getAndSetObject",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "java.lang.Object"
-        ]
-      },
-      {
-        "name": "getBoolean",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getByte",
-        "parameterTypes": [
-          "long"
-        ]
-      },
-      {
-        "name": "getByte",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getDouble",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getFloat",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getInt",
-        "parameterTypes": [
-          "long"
-        ]
-      },
-      {
-        "name": "getInt",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getLong",
-        "parameterTypes": [
-          "long"
-        ]
-      },
-      {
-        "name": "getLong",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "getObject",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long"
-        ]
-      },
-      {
-        "name": "objectFieldOffset",
-        "parameterTypes": [
-          "java.lang.reflect.Field"
-        ]
-      },
-      {
-        "name": "putBoolean",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "boolean"
-        ]
-      },
-      {
-        "name": "putByte",
-        "parameterTypes": [
-          "long",
-          "byte"
-        ]
-      },
-      {
-        "name": "putByte",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "byte"
-        ]
-      },
-      {
-        "name": "putDouble",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "double"
-        ]
-      },
-      {
-        "name": "putFloat",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "float"
-        ]
-      },
-      {
-        "name": "putInt",
-        "parameterTypes": [
-          "long",
-          "int"
-        ]
-      },
-      {
-        "name": "putInt",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "int"
-        ]
-      },
-      {
-        "name": "putLong",
-        "parameterTypes": [
-          "long",
-          "long"
-        ]
-      },
-      {
-        "name": "putLong",
-        "parameterTypes": [
-          "java.lang.Object",
-          "long",
-          "long"
-        ]
-      },
-      {
-        "name": "putObject",
         "parameterTypes": [
           "java.lang.Object",
           "long",
