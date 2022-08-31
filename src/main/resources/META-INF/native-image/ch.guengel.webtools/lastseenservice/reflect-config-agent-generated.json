@@ -6,6 +6,28 @@
     "name": "[Ljava.sql.Statement;"
   },
   {
+    "name": "ch.guengel.webtools.dao.Client",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.jetbrains.exposed.dao.id.EntityID"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ch.guengel.webtools.dao.Seen",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.jetbrains.exposed.dao.id.EntityID"
+        ]
+      }
+    ]
+  },
+  {
     "name": "ch.qos.logback.classic.encoder.PatternLayoutEncoder",
     "queryAllPublicMethods": true,
     "methods": [
@@ -113,6 +135,31 @@
     ]
   },
   {
+    "name": "com.google.common.util.concurrent.AbstractFuture",
+    "fields": [
+      {
+        "name": "listeners"
+      },
+      {
+        "name": "value"
+      },
+      {
+        "name": "waiters"
+      }
+    ]
+  },
+  {
+    "name": "com.google.common.util.concurrent.AbstractFuture$Waiter",
+    "fields": [
+      {
+        "name": "next"
+      },
+      {
+        "name": "thread"
+      }
+    ]
+  },
+  {
     "name": "com.google.protobuf.ExtensionRegistry",
     "methods": [
       {
@@ -153,6 +200,143 @@
     "allDeclaredFields": true
   },
   {
+    "name": "io.grpc.netty.AbstractNettyHandler",
+    "queriedMethods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.grpc.netty.NettyServer$1"
+  },
+  {
+    "name": "io.grpc.netty.NettyServerHandler",
+    "queriedMethods": [
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.grpc.netty.ProtocolNegotiators$GrpcNegotiationHandler",
+    "queriedMethods": [
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.grpc.netty.ProtocolNegotiators$ProtocolNegotiationHandler",
+    "queriedMethods": [
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.grpc.netty.ProtocolNegotiators$WaitUntilActiveHandler",
+    "queriedMethods": [
+      {
+        "name": "channelActive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.grpc.netty.WriteBufferingAndExceptionHandler",
+    "queriedMethods": [
+      {
+        "name": "channelInactive",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
+  },
+  {
     "name": "io.netty.bootstrap.ServerBootstrap$1"
   },
   {
@@ -177,6 +361,77 @@
   {
     "name": "io.netty.buffer.AbstractByteBufAllocator",
     "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "io.netty.buffer.AbstractReferenceCountedByteBuf",
+    "fields": [
+      {
+        "name": "refCnt"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.ChannelDuplexHandler",
+    "queriedMethods": [
+      {
+        "name": "bind",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "close",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "deregister",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "read",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "write",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object",
+          "io.netty.channel.ChannelPromise"
+        ]
+      }
+    ]
   },
   {
     "name": "io.netty.channel.ChannelInboundHandlerAdapter",
@@ -222,6 +477,13 @@
         "name": "channelWritabilityChanged",
         "parameterTypes": [
           "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "exceptionCaught",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Throwable"
         ]
       },
       {
@@ -434,12 +696,95 @@
     ]
   },
   {
+    "name": "io.netty.handler.codec.ByteToMessageDecoder",
+    "queriedMethods": [
+      {
+        "name": "channelRead",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "userEventTriggered",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.lang.Object"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "io.netty.handler.codec.http2.Http2ConnectionHandler",
+    "queriedMethods": [
+      {
+        "name": "bind",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "channelReadComplete",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "channelWritabilityChanged",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "connect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "java.net.SocketAddress",
+          "java.net.SocketAddress",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "deregister",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext",
+          "io.netty.channel.ChannelPromise"
+        ]
+      },
+      {
+        "name": "flush",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      },
+      {
+        "name": "read",
+        "parameterTypes": [
+          "io.netty.channel.ChannelHandlerContext"
+        ]
+      }
+    ]
+  },
+  {
     "name": "io.netty.util.AbstractReferenceCounted",
     "fields": [
       {
         "name": "refCnt"
       }
     ]
+  },
+  {
+    "name": "io.netty.util.ReferenceCountUtil",
+    "queryAllDeclaredMethods": true
   },
   {
     "name": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
@@ -462,6 +807,30 @@
     "fields": [
       {
         "name": "producerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueConsumerIndexField",
+    "fields": [
+      {
+        "name": "consumerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerIndexField",
+    "fields": [
+      {
+        "name": "producerIndex"
+      }
+    ]
+  },
+  {
+    "name": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerLimitField",
+    "fields": [
+      {
+        "name": "producerLimit"
       }
     ]
   },
@@ -613,6 +982,15 @@
     "name": "java.time.LocalDateTime"
   },
   {
+    "name": "java.util.ArrayList",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
     "name": "java.util.PropertyPermission"
   },
   {
@@ -633,15 +1011,15 @@
       {
         "name": "<init>",
         "parameterTypes": []
-      }
-    ],
-    "queriedMethods": [
+      },
       {
         "name": "add",
         "parameterTypes": [
           "long"
         ]
-      },
+      }
+    ],
+    "queriedMethods": [
       {
         "name": "sum",
         "parameterTypes": []
@@ -697,6 +1075,15 @@
   },
   {
     "name": "kotlin.Unit"
+  },
+  {
+    "name": "kotlin.internal.jdk8.JDK8PlatformImplementations",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
   },
   {
     "name": "kotlin.jvm.internal.DefaultConstructorMarker"
@@ -860,19 +1247,7 @@
         ]
       },
       {
-        "name": "setBaseTableCatalogName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
         "name": "setBaseTableName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setBaseTableSchemaName",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -881,24 +1256,6 @@
         "name": "setConstraintName",
         "parameterTypes": [
           "java.lang.String"
-        ]
-      },
-      {
-        "name": "setDeferrable",
-        "parameterTypes": [
-          "java.lang.Boolean"
-        ]
-      },
-      {
-        "name": "setDeleteCascade",
-        "parameterTypes": [
-          "java.lang.Boolean"
-        ]
-      },
-      {
-        "name": "setInitiallyDeferred",
-        "parameterTypes": [
-          "java.lang.Boolean"
         ]
       },
       {
@@ -920,33 +1277,9 @@
         ]
       },
       {
-        "name": "setReferencedTableCatalogName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
         "name": "setReferencedTableName",
         "parameterTypes": [
           "java.lang.String"
-        ]
-      },
-      {
-        "name": "setReferencedTableSchemaName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setReferencesUniqueColumn",
-        "parameterTypes": [
-          "java.lang.Boolean"
-        ]
-      },
-      {
-        "name": "setValidate",
-        "parameterTypes": [
-          "java.lang.Boolean"
         ]
       }
     ]
@@ -1012,25 +1345,7 @@
         "parameterTypes": []
       },
       {
-        "name": "setCatalogName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setClustered",
-        "parameterTypes": [
-          "java.lang.Boolean"
-        ]
-      },
-      {
         "name": "setIndexName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setSchemaName",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -1039,18 +1354,6 @@
         "name": "setTableName",
         "parameterTypes": [
           "java.lang.String"
-        ]
-      },
-      {
-        "name": "setTablespace",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setUnique",
-        "parameterTypes": [
-          "java.lang.Boolean"
         ]
       }
     ]
@@ -1096,31 +1399,7 @@
         "parameterTypes": []
       },
       {
-        "name": "setCatalogName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setRemarks",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setSchemaName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
         "name": "setTableName",
-        "parameterTypes": [
-          "java.lang.String"
-        ]
-      },
-      {
-        "name": "setTablespace",
         "parameterTypes": [
           "java.lang.String"
         ]
@@ -1327,15 +1606,6 @@
     ]
   },
   {
-    "name": "liquibase.datatype.core.IntType",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
     "name": "liquibase.datatype.core.TextDataTypeSnowflake",
     "methods": [
       {
@@ -1416,6 +1686,9 @@
     "allDeclaredFields": true
   },
   {
+    "name": "org.jetbrains.exposed.dao.id.EntityID"
+  },
+  {
     "name": "org.jetbrains.exposed.sql.ColumnType",
     "methods": [
       {
@@ -1450,11 +1723,7 @@
   },
   {
     "name": "sun.misc.Unsafe",
-    "fields": [
-      {
-        "name": "theUnsafe"
-      }
-    ],
+    "allDeclaredFields": true,
     "methods": [
       {
         "name": "invokeCleaner",
@@ -1464,6 +1733,26 @@
       }
     ],
     "queriedMethods": [
+      {
+        "name": "arrayBaseOffset",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "arrayIndexScale",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "copyMemory",
+        "parameterTypes": [
+          "long",
+          "long",
+          "long"
+        ]
+      },
       {
         "name": "copyMemory",
         "parameterTypes": [
@@ -1484,6 +1773,156 @@
       },
       {
         "name": "getAndSetObject",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "getBoolean",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getByte",
+        "parameterTypes": [
+          "long"
+        ]
+      },
+      {
+        "name": "getByte",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getDouble",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getFloat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getInt",
+        "parameterTypes": [
+          "long"
+        ]
+      },
+      {
+        "name": "getInt",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getLong",
+        "parameterTypes": [
+          "long"
+        ]
+      },
+      {
+        "name": "getLong",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "getObject",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long"
+        ]
+      },
+      {
+        "name": "objectFieldOffset",
+        "parameterTypes": [
+          "java.lang.reflect.Field"
+        ]
+      },
+      {
+        "name": "putBoolean",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "boolean"
+        ]
+      },
+      {
+        "name": "putByte",
+        "parameterTypes": [
+          "long",
+          "byte"
+        ]
+      },
+      {
+        "name": "putByte",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "byte"
+        ]
+      },
+      {
+        "name": "putDouble",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "double"
+        ]
+      },
+      {
+        "name": "putFloat",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "float"
+        ]
+      },
+      {
+        "name": "putInt",
+        "parameterTypes": [
+          "long",
+          "int"
+        ]
+      },
+      {
+        "name": "putInt",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "int"
+        ]
+      },
+      {
+        "name": "putLong",
+        "parameterTypes": [
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "putLong",
+        "parameterTypes": [
+          "java.lang.Object",
+          "long",
+          "long"
+        ]
+      },
+      {
+        "name": "putObject",
         "parameterTypes": [
           "java.lang.Object",
           "long",
