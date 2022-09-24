@@ -9,11 +9,10 @@ version-tag-only: &version-tag-only
 schedule-trigger: &schedule-trigger
   equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
 
+
 not-schedule-trigger: &not-schedule-trigger
-  and:
-    - equal: [ false, << pipeline.parameters.deploy-dev-artifact >> ]
-    - not:
-        *schedule-trigger
+  not:
+    *schedule-trigger
 
 orbs:
   c: rafaelostertag/common-orb@1.19.0
