@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <exposed.version>0.39.2</exposed.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <hikaricp.version>5.0.1</hikaricp.version>
         <junit-jupiter.version>5.9.1</junit-jupiter.version>
         <kotlin.version>1.7.10</kotlin.version>
